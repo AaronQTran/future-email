@@ -17,19 +17,27 @@ const SendMessage = () => {
           </button>
         </div>
       </nav>
+  
+      <div className="flex flex-start items-center pt-0 pb-36 -mt-4 pl-12 flex-grow sm:pl-4 md:pl-8 lg:pl-12 xl:pl-12 sm:pr-4 md:pr-8 lg:pr-12 xl:pr-12">
+        <div className="flex w-full pt-16">
 
-      <div className="flex flex-start items-center pb-36 pt-28 pl-12 flex-grow sm:pl-4 md:pl-8 lg:pl-12 xl:pl-12 sm:pr-4 md:pr-8 lg:pr-12 xl:pr-16">
-        <div className= "border-black rounded-md w-full h-full">
-        <textarea 
-          style={{ width: '75%', height: '85%', padding: '16px' }}
-          className="rounded-md border border-gray-300 rounded-xl focus:outline-none focus:border-red-500"
-          placeholder="Write your future email here..."
-        ></textarea>
+          <div className="border-black rounded-md w-3/4 flex-grow">
+            <textarea 
+              style={{ width: '100%', height: '100%', padding: '16px' }}
+              className="resize-none rounded-md border border-gray-300 rounded-xl focus:outline-none focus:border-red-500"
+              placeholder="Write your future email here..."
+            ></textarea>
+          </div>
+
+          <div className="border-2 border-red-500 w-1/5 flex-grow ml-4">
+            
+          </div>
+
         </div>
       </div>
-      
     </div>
   );
+  
 }
 
 export default SendMessage;
