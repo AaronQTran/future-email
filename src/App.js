@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const SendMessage = () => {
-  const[message, setMessage] = useState('');
-  const[email, setEmail] = useState('');
-  const[date, setDate] = useState('');
+  const [message, setMessage] = useState('');
+  const [email, setEmail] = useState('');
+  const [date, setDate] = useState('');
 
   return (
     <div className="flex flex-col bg-indigo-600 w-full h-screen">
@@ -17,27 +17,26 @@ const SendMessage = () => {
           </button>
         </div>
       </nav>
-  
-      <div className="flex flex-start items-center pt-0 pb-36 -mt-4 pl-12 flex-grow sm:pl-4 md:pl-8 lg:pl-12 xl:pl-12 sm:pr-4 md:pr-8 lg:pr-12 xl:pr-12">
-        <div className="flex w-full pt-16">
 
-          <div className="border-black rounded-md w-3/4 flex-grow">
-            <textarea 
+      <div className="flex flex-col flex-grow pb-48 pt-8 pb-36 -mt-4 pl-12 sm:pl-4 md:pl-8 lg:pl-12 xl:pl-12 pr-0">
+        <div className="flex flex-grow pt-16">
+          <div className="border-black rounded-md w-3/4 h-full">
+            <textarea
               style={{ width: '100%', height: '100%', padding: '16px' }}
               className="resize-none rounded-md border border-gray-300 rounded-xl focus:outline-none focus:border-red-500"
               placeholder="Write your future email here..."
             ></textarea>
           </div>
 
-          <div className="border-2 border-red-500 w-1/5 flex-grow ml-4">
-            
+          <div className="border-2 border-red-500 w-1/5 h-full ml-4 mr-0">
+            {/* Additional content for the right-side div */}
           </div>
-
         </div>
       </div>
     </div>
   );
-  
 }
 
 export default SendMessage;
+
+
