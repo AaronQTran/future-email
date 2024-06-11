@@ -9,20 +9,18 @@ const SendMessage = () => {
   const [selectedYear, setSelectedYear] = useState('');
 
   const handleSend = () => {
-    // Handle the send action (e.g., form submission, API call, etc.)
     console.log('Message:', message);
     console.log('Email:', email);
     console.log('Date:', `${selectedYear}-${selectedMonth}-${selectedDay}`);
     console.log('Private:', isPrivate);
   };
 
-  // Get today's date in YYYY-MM-DD format
+  
   const today = new Date();
   const todayYear = today.getFullYear();
-  const todayMonth = today.getMonth() + 1; // getMonth() returns 0-11
+  const todayMonth = today.getMonth() + 1; 
   const todayDate = today.getDate();
 
-  // Generate arrays for dropdown options
   const monthNames = [
     'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December'
@@ -45,7 +43,7 @@ const SendMessage = () => {
 
       <div className="flex flex-col flex-grow pb-48 pt-8 -mt-4 pl-12 sm:pl-4 md:pl-8 lg:pl-12 xl:pl-12 pr-8">
         <div className="flex flex-grow pt-16">
-          <div className="border-black rounded-md w-3/4 pr-4 h-full">
+          <div className="border-black rounded-md w-3/4 h-full">
             <textarea
               style={{ width: '100%', height: '100%', padding: '16px' }}
               className="resize-none rounded-md border border-gray-300 rounded-xl focus:outline-none focus:border-red-500"
@@ -53,9 +51,12 @@ const SendMessage = () => {
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             ></textarea>
+            <div className="mt-4 text-left text-white">
+              <p>Send emails to your future self or others! Set the date and make it happen with ChronoMailer.</p>
+            </div>
           </div>
 
-          <div className="border-2 border-red-500 w-1/4 h-full ml-4 mr-4 flex flex-col justify-between">
+          <div className="w-1/4 h-full ml-4 mr-4 flex flex-col justify-between">
             <div>
               <div className="mb-4">
                 <label className="block text-white mb-2" htmlFor="email">Email</label>
@@ -72,7 +73,7 @@ const SendMessage = () => {
                 <label className="block text-white mb-2" htmlFor="date">Date</label>
                 <div className="flex space-x-2">
                   <select
-                    className="w-1/2   px-3 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:border-red-500"
+                    className="w-1/3 px-3 py-2 text-black border border-gray-300 rounded-md focus:outline-none focus:border-red-500"
                     value={selectedMonth}
                     onChange={(e) => setSelectedMonth(e.target.value)}
                   >
@@ -104,14 +105,25 @@ const SendMessage = () => {
                 </div>
               </div>
               <div className="mb-4">
-                <button
-                  className={`w-full px-4 py-2 font-semibold border rounded-md ${
-                    isPrivate ? 'text-white bg-red-500' : 'text-red-500 bg-white'
-                  }`}
-                  onClick={() => setIsPrivate(!isPrivate)}
-                >
-                  {isPrivate ? 'Private' : 'Public'}
-                </button>
+                <label className="block text-white mb-2" htmlFor="privacy">Privacy</label>
+                <div className="flex space-x-2">
+                  <button
+                    className={`w-1/2 px-4 py-2 font-semibold border rounded-md ${
+                      isPrivate ? 'text-white bg-pink-500' : 'text-red-500 bg-white'
+                    }`}
+                    onClick={() => setIsPrivate(true)}
+                  >
+                    Private
+                  </button>
+                  <button
+                    className={`w-1/2 px-4 py-2 font-semibold border rounded-md ${
+                      !isPrivate ? 'text-white bg-pink-500' : 'text-red-500 bg-white'
+                    }`}
+                    onClick={() => setIsPrivate(false)}
+                  >
+                    Public
+                  </button>
+                </div>
               </div>
             </div>
             <div>
